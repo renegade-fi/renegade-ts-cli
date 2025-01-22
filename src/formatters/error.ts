@@ -1,10 +1,15 @@
 import chalk from "chalk";
-import type { CLIError } from "../types";
+import { BINARY_NAME } from "../constants";
+
+export interface CLIError extends Error {
+  code: string;
+  suggestions: string[];
+}
 
 export function formatError(error: Error | CLIError): string {
   const isCliError = "code" in error && "suggestions" in error;
 
-  const errorMessage = [chalk.red("Error: ") + error.message, ""];
+  const errorMessage = [chalk.red(error.message), ""];
 
   if (isCliError) {
     const cliError = error as CLIError;
@@ -16,7 +21,7 @@ export function formatError(error: Error | CLIError): string {
       );
     }
 
-    errorMessage.push("For more help:", "$ cli-tool setup --help");
+    errorMessage.push("For more help:", `$ ${BINARY_NAME} --help`);
   }
 
   return errorMessage.join("\n");

@@ -1,12 +1,29 @@
-export const CLI = {
-  NAME: "renegade",
-  COMMANDS: {
-    SETUP: "setup",
-    WALLET: {
-      STATE: "wallet state",
-    },
-  },
-} as const;
+import { homedir } from "os";
+import { join } from "path";
+
+// Path to the directory where the config is stored
+export const CONFIG_DIR = join(homedir(), ".renegade-ts-cli");
+
+// Path to the config file
+export const CONFIG_FILE_PATH = join(CONFIG_DIR, "config.json");
+
+// Name of the binary
+export const BINARY_NAME = "renegade";
+
+// Command to setup the CLI
+export const SETUP_COMMAND = "setup";
+
+// Command to view and edit the config
+export const CONFIG_COMMAND = "config";
+
+// Command to view the wallet state
+export const WALLET_COMMAND = "wallet";
+
+// Command to view the order history
+export const ORDER_HISTORY_COMMAND = "order-history";
+
+// Command to view the task history
+export const TASK_HISTORY_COMMAND = "task-history";
 
 export const CHAINS = {
   ARBITRUM: 42161,
@@ -17,28 +34,7 @@ export const CHAINS = {
   },
 } as const;
 
-export const ERRORS = {
-  CODES: {
-    WALLET_NOT_FOUND: "WALLET_NOT_FOUND",
-    INVALID_JSON: "INVALID_JSON",
-  },
-  MESSAGES: {
-    WALLET_NOT_FOUND: (path: string) => `No valid wallet file found at ${path}`,
-    INVALID_JSON: (path: string) => `Wallet file at ${path} is not valid JSON`,
-  },
-} as const;
-
-export const SUCCESS_MESSAGES = {
-  WALLET_VALIDATED: "Wallet JSON file validated",
-  CHAIN_SET: (chainId: number) =>
-    `Chain ID set to ${chainId} (${CHAINS.NAMES[chainId as keyof typeof CHAINS.NAMES]})`,
-  WALLET_PATH_SET: (path: string) => `Using wallet at ${path}`,
-} as const;
-
-export const HELP_MESSAGES = {
-  SETUP: {
-    COMMAND: "Validate wallet file and chain ID settings",
-    CHAIN_ID: "Chain ID to use (42161 or 421614)",
-    WALLET_PATH: "Path to wallet JSON file",
-  },
-} as const;
+export const SUPPORTED_CHAINS = [
+  CHAINS.ARBITRUM,
+  CHAINS.ARBITRUM_SEPOLIA,
+] as const;
