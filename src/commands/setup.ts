@@ -5,14 +5,17 @@ import { homedir } from "os";
 import { join } from "path";
 import type { Arguments, CommandBuilder } from "yargs";
 import type { Cli } from "../cli.js";
-import { BINARY_NAME, CHAINS, ORDER_HISTORY_COMMAND, SETUP_COMMAND, TASK_HISTORY_COMMAND, WALLET_COMMAND } from "../constants.js";
+import {
+  BINARY_NAME,
+  CHAINS,
+  ORDER_HISTORY_COMMAND,
+  SETUP_COMMAND,
+  TASK_HISTORY_COMMAND,
+  WALLET_COMMAND,
+} from "../constants.js";
 import { ConfigError } from "../errors.js";
 import { formatError } from "../formatters/error.js";
-import {
-  readConfig,
-  validateWalletPath,
-  writeConfig,
-} from "../config.js";
+import { readConfig, validateWalletPath, writeConfig } from "../config.js";
 import { createContext } from "./context.js";
 
 export const command = SETUP_COMMAND;
@@ -57,10 +60,14 @@ export const handler = async (argv: Arguments<Cli>) => {
 
 const printWelcomeMessage = () => {
   console.log(chalk.cyan("\nWelcome to the Renegade CLI Setup! 🜆\n"));
-  console.log("This setup requires your wallet secrets file, which should look like this:");
+  console.log(
+    "This setup requires your wallet secrets file, which should look like this:",
+  );
   console.log();
   console.log(chalk.gray("wallet.json:"));
-  console.log(chalk.gray("┌────────────────────────────────────────────────────┐"));
+  console.log(
+    chalk.gray("┌────────────────────────────────────────────────────┐"),
+  );
   console.log(chalk.gray("│") + " {");
   console.log(chalk.gray("│") + '   "wallet_id": "****-****-****-****",');
   console.log(chalk.gray("│") + '   "blinder_seed": "0x***",');
@@ -68,16 +75,19 @@ const printWelcomeMessage = () => {
   console.log(chalk.gray("│") + '   "symmetric_key": "0x***",');
   console.log(chalk.gray("│") + '   "sk_match": "0x***"');
   console.log(chalk.gray("│") + " }");
-  console.log(chalk.gray("└────────────────────────────────────────────────────┘"));
-  console.log();
   console.log(
-    chalk.blue(
-      "→ Follow these instructions to generate your wallet secrets file: https://docs.renegade.fi/technical-reference/typescript-sdk#generating-wallet-secrets"
-    )
+    chalk.gray("└────────────────────────────────────────────────────┘"),
   );
   console.log();
   console.log(
-    chalk.yellow("Note:") + " This wallet file only enables read operations (like viewing balances and orders)."
+    chalk.blue(
+      "→ Follow these instructions to generate your wallet secrets file: https://docs.renegade.fi/technical-reference/typescript-sdk#generating-wallet-secrets",
+    ),
+  );
+  console.log();
+  console.log(
+    chalk.yellow("Note:") +
+      " This wallet file only enables read operations (like viewing balances and orders).",
   );
   console.log();
 };
@@ -166,7 +176,9 @@ const validateAndSaveConfig = async (
     return true;
   } catch (error) {
     spinner.fail(
-      error instanceof ConfigError ? error.message : "Invalid wallet secrets file",
+      error instanceof ConfigError
+        ? error.message
+        : "Invalid wallet secrets file",
     );
     throw error;
   }
@@ -176,7 +188,8 @@ const validateAndSaveConfig = async (
 const printSuccessHints = (ctx: any, walletPath: string) => {
   return [
     "",
-    chalk.green("✓") + ` Chain ID set to ${ctx.chainId} (${CHAINS.NAMES[ctx.chainId as keyof typeof CHAINS.NAMES]})`,
+    chalk.green("✓") +
+      ` Chain ID set to ${ctx.chainId} (${CHAINS.NAMES[ctx.chainId as keyof typeof CHAINS.NAMES]})`,
     chalk.green("✓") + ` Using wallet at ${walletPath}`,
     "",
     "Try these commands:",

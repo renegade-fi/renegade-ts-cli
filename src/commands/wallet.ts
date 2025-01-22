@@ -9,7 +9,6 @@ import { formatError } from "../formatters/error.js";
 import { formatWallet } from "../formatters/wallet.js";
 import { createContext } from "./context.js";
 
-
 export type WalletField = "orders" | "balances" | "fees";
 
 export interface ShowWalletArgs extends Cli {
@@ -60,7 +59,7 @@ export const handler = async (argv: Arguments<ShowWalletArgs>) => {
   }
 };
 
-// Helper function for success hints 
+// Helper function for success hints
 const printSuccessHints = (field?: WalletField) => {
   switch (field) {
     case "orders":
