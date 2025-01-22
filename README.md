@@ -4,14 +4,20 @@ A command-line interface tool for viewing and querying the Renegade protocol.
 
 ## Installation
 
+Install globally using npm (or your preferred package manager)
 ```bash
-# Install globally using npm (or your preferred package manager)
 npm install -g @renegade-fi/cli
-# or
+```
+
+```bash
 yarn global add @renegade-fi/cli
-# or
+```
+
+```bash
 pnpm add -g @renegade-fi/cli
-# or
+```
+
+```bash
 bun install -g @renegade-fi/cli
 ```
 
