@@ -1,7 +1,7 @@
 import type { Argv, Options } from "yargs";
-import { SUPPORTED_CHAINS } from "./constants";
-import { CHAINS } from "./constants";
-import { readConfig } from "./config";
+import { SUPPORTED_CHAINS } from "./constants.js";
+import { CHAINS } from "./constants.js";
+import { readConfig } from "./config.js";
 
 export interface Cli {
   "chain-id": typeof CHAINS.ARBITRUM | typeof CHAINS.ARBITRUM_SEPOLIA;

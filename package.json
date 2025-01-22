@@ -1,26 +1,28 @@
 {
-  "name": "renegade-cli",
+  "name": "@renegade-fi/cli",
   "description": "A CLI tool for interacting with the Renegade protocol",
-  "module": "index.ts",
+  "version": "0.0.5",
+  "module": "dist/index.js",
   "type": "module",
   "bin": {
-    "renegade": "./src/index.ts"
+    "renegade": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "dev": "pnpm run build && pnpm run start",
     "format": "prettier --write 'src/**/*.ts'",
-    "tsx": "tsx"
+    "prepublishOnly": "pnpm run clean && pnpm run build"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "@types/cli-progress": "^3.11.6",
     "@types/node": "^20.11.5",
     "@types/yargs": "^17.0.33",
     "prettier": "^3.2.4",
-    "tsx": "^4.19.2",
     "typescript": "^5.3.3"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
   },
   "dependencies": {
     "@renegade-fi/node": "0.0.0-canary-20250122001108",
@@ -31,5 +33,17 @@
     "viem": "^2.22.11",
     "yargs": "^17.7.2"
   },
-  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81",
+  "keywords": [
+    "cryptography",
+    "zero-knowledge",
+    "darkpool",
+    "eth",
+    "ethereum",
+    "dapps",
+    "web3"
+  ]
 }

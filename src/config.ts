@@ -7,8 +7,8 @@ import {
   writeFile,
 } from "fs/promises";
 import { dirname } from "path";
-import { CHAINS, CONFIG_DIR, CONFIG_FILE_PATH } from "./constants";
-import { ConfigError, ErrorCode } from "./errors";
+import { CHAINS, CONFIG_DIR, CONFIG_FILE_PATH } from "./constants.js";
+import { ConfigError, ErrorCode } from "./errors.js";
 
 interface Config {
   walletPath: string;

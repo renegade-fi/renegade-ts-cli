@@ -2,12 +2,12 @@ import { getBackOfQueueWallet } from "@renegade-fi/node";
 import chalk from "chalk";
 import ora from "ora";
 import type { Arguments, CommandBuilder } from "yargs";
-import type { Cli } from "../cli";
-import { BINARY_NAME, WALLET_COMMAND } from "../constants";
-import { handleSdkError } from "../errors";
-import { formatError } from "../formatters/error";
-import { formatWallet } from "../formatters/wallet";
-import { createContext } from "./context";
+import type { Cli } from "../cli.js";
+import { BINARY_NAME, WALLET_COMMAND } from "../constants.js";
+import { handleSdkError } from "../errors.js";
+import { formatError } from "../formatters/error.js";
+import { formatWallet } from "../formatters/wallet.js";
+import { createContext } from "./context.js";
 
 
 export type WalletField = "orders" | "balances" | "fees";

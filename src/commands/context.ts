@@ -5,10 +5,10 @@ import {
   type GeneratedSecrets,
 } from "@renegade-fi/node";
 import { readFile } from "fs/promises";
-import type { Cli } from "../cli";
-import { CHAINS, SUPPORTED_CHAINS } from "../constants";
-import { ConfigError, ErrorCode } from "../errors";
-import { validateWalletPath } from "../config";
+import type { Cli } from "../cli.js";
+import { CHAINS, SUPPORTED_CHAINS } from "../constants.js";
+import { ConfigError, ErrorCode } from "../errors.js";
+import { validateWalletPath } from "../config.js";
 
 // Required fields that must exist in a wallet file
 const REQUIRED_WALLET_FIELDS = [

@@ -1,9 +1,9 @@
 import chalk from "chalk";
 import type { Arguments, CommandBuilder } from "yargs";
-import type { Cli } from "../cli";
-import { BINARY_NAME, CHAINS, CONFIG_COMMAND } from "../constants";
-import { formatError } from "../formatters/error";
-import { deleteConfig, readConfig } from "../config";
+import type { Cli } from "../cli.js";
+import { BINARY_NAME, CHAINS, CONFIG_COMMAND } from "../constants.js";
+import { formatError } from "../formatters/error.js";
+import { deleteConfig, readConfig } from "../config.js";
 
 export interface ConfigArgs extends Cli {
   subcommand?: "view" | "reset";

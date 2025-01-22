@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { BINARY_NAME } from "../constants";
+import { BINARY_NAME } from "../constants.js";
 
 export interface CLIError extends Error {
   code: string;

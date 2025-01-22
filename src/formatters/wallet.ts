@@ -3,7 +3,7 @@ import { Token } from "@renegade-fi/node";
 import chalk from "chalk";
 import UI from "cliui";
 import { formatUnits } from "viem";
-import type { WalletField } from "../commands/wallet";
+import type { WalletField } from "../commands/wallet.js";
 
 interface FormatOptions {
   field?: WalletField;

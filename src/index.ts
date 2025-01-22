@@ -1,14 +1,15 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { cliOptions, loadConfigDefaults } from "./cli";
-import { BINARY_NAME } from "./constants";
+import { cliOptions, loadConfigDefaults } from "./cli.js";
+import { BINARY_NAME } from "./constants.js";
 // Import commands
-import * as config from "./commands/config";
-import * as orderHistory from "./commands/order-history";
-import * as setup from "./commands/setup";
-import * as wallet from "./commands/wallet";
-import * as taskHistory from "./commands/task-history";
+import * as config from "./commands/config.js";
+import * as orderHistory from "./commands/order-history.js";
+import * as setup from "./commands/setup.js";
+import * as wallet from "./commands/wallet.js";
+import * as taskHistory from "./commands/task-history.js";
+
 // Handle Ctrl+C gracefully
 process.on("SIGINT", () => {
   console.log("\nOperation cancelled");
