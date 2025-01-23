@@ -1,6 +1,6 @@
 # Renegade CLI
 
-A command-line interface tool for viewing and querying the Renegade protocol.
+A command-line interface tool for interacting with the Renegade protocol.
 
 ## Installation
 

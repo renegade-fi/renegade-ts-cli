@@ -1,7 +1,7 @@
 {
   "name": "@renegade-fi/cli",
   "description": "A CLI tool for interacting with the Renegade protocol",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "module": "dist/index.js",
   "type": "module",
   "bin": {
@@ -25,7 +25,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@renegade-fi/node": "0.0.0-canary-20250122001108",
+    "@renegade-fi/node": "0.0.0-canary-20250122010902",
     "chalk": "^5.3.0",
     "cliui": "^8.0.1",
     "inquirer": "^12.3.2",
