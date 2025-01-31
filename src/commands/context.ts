@@ -100,6 +100,7 @@ export async function createContext(args: Cli): Promise<CommandContext> {
 
   // Create the Config object to use with the Renegade SDK
   const config = createExternalKeyConfig({
+    chainId: args["chain-id"],
     relayerUrl: chainConfig.httpUrl,
     darkPoolAddress: chainConfig.darkPoolAddress,
     websocketUrl: chainConfig.websocketUrl,
