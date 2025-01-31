@@ -1,7 +1,7 @@
 {
   "name": "@renegade-fi/cli",
   "description": "A CLI tool for interacting with the Renegade protocol",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "module": "dist/index.js",
   "type": "module",
   "bin": {
